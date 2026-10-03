@@ -33,20 +33,12 @@ Personal infrastructure stack consisting of virtualized workloads, VLAN-segmente
 
 ## Currently Building
 
-### Aegis.Auth
-*Identity & access management platform*
-
-Authentication and authorization platform exploring centralized identity management, MFA, OAuth/OpenID Connect integrations, role-based access control, and developer-friendly authentication services.
-
-### StrengthSuite
-*Fitness and performance platform*
-
-Fitness-focused software platform concept aimed at workout tracking, progression analysis, performance metrics, and long-term athlete development.
-
 ### SynqWealth
-*Personal finance and wealth management platform*
+*Personal finance and wealth management platform — ASP.NET Core · PostgreSQL · TypeScript*
 
-Personal finance platform concept focused on portfolio visibility, budgeting, financial planning, and long-term wealth tracking through a unified dashboard experience.
+Personal finance platform unifying bank accounts and investment positions into a single view: transaction ingestion and categorisation, transfer matching between own accounts, budgeting, and long-term wealth tracking. Currently being ported from its original TypeScript API to ASP.NET Core, largely as a deliberate exercise in porting a working system rather than rewriting one.
+
+**On the bench:** *Aegis.Auth* (identity & access management — centralized identity, MFA, OAuth/OIDC, RBAC) and *StrengthSuite* (workout tracking and progression analysis). Both are designs I return to, not active builds.
 
 ---
 
@@ -67,4 +59,4 @@ Automation     PowerShell, Bash
 
 **Currently learning:** distributed systems design, cloud-native architectures, software architecture, observability, and scalable backend systems.
 
-[CV (PDF)](https://github.com/danielvanginneken/danielvanginneken/releases/latest) · [LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.nl) · [GitHub](https://github.com/danielvanginneken) · dcjvanginneken@gmail.com
+[CV (PDF)](https://github.com/danielvanginneken/danielvanginneken/releases/latest) · [LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.com) · [GitHub](https://github.com/danielvanginneken) · dcjvanginneken@gmail.com
