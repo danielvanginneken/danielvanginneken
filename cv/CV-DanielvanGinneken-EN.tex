@@ -2,56 +2,7 @@
 %  CV — Daniël van Ginneken
 %──────────────────────────────────────────────────────────────
 \documentclass[a4paper,10pt]{article}
-
-% ── Packages ─────────────────────────────────────────────────
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[margin=0.55in, top=0.45in, bottom=0.45in]{geometry}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{fontawesome5}
-\usepackage{tabularx}
-\usepackage{parskip}
-\usepackage{microtype}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{charter}
-\usepackage[scaled=0.92]{helvet}
-
-% ── Colours ──────────────────────────────────────────────────
-\definecolor{accent}{HTML}{1A5276}
-\definecolor{lightgray}{HTML}{666666}
-\definecolor{ruleclr}{HTML}{CCCCCC}
-
-% ── Hyperlinks ───────────────────────────────────────────────
-\hypersetup{
-  colorlinks=true,
-  urlcolor=accent,
-  linkcolor=accent,
-  pdfauthor={Daniël van Ginneken},
-  pdftitle={CV — Daniël van Ginneken},
-}
-
-% ── Section formatting ───────────────────────────────────────
-\titleformat{\section}
-  {\large\bfseries\color{accent}\sffamily}
-  {}{0pt}{\MakeUppercase}[\vspace{-4pt}\textcolor{ruleclr}{\rule{\linewidth}{0.6pt}}]
-\titlespacing*{\section}{0pt}{8pt}{4pt}
-
-% ── Custom commands ──────────────────────────────────────────
-\newcommand{\cventry}[4]{%
-  {\textbf{#1}}\hfill{\small\color{lightgray}#2}\\
-  {\textit{#3}}\hfill{\small\color{lightgray}#4}\vspace{2pt}%
-}
-\newcommand{\cvsimple}[2]{%
-  {\textbf{#1}}\hfill{\small\color{lightgray}#2}\vspace{1pt}%
-}
-\newcommand{\contactitem}[2]{\mbox{#1\,\small #2}}
-
-\pagestyle{empty}
-\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=2pt}
+\input{cv-style}
 
 \begin{document}
 
@@ -63,21 +14,21 @@
   {\Huge\bfseries\sffamily\color{accent} Daniël van Ginneken}\\[6pt]
   \contactitem{\faMapMarker*}{Oudenbosch, Netherlands}\;\;$\cdot$\;\;%
   \contactitem{\faEnvelope}{\href{mailto:dcjvanginneken@gmail.com}{dcjvanginneken@gmail.com}}\;\;$\cdot$\;\;%
-  \contactitem{\faPhone*}{Available on request}\\[3pt]
+  \contactitem{\faPhone*}{Available on request}\\[0pt]
   \contactitem{\faLinkedin}{\href{https://linkedin.com/in/daniel-vginneken}{linkedin.com/in/daniel-vginneken}}\;\;$\cdot$\;\;%
   \contactitem{\faGlobe}{\href{https://danielvanginneken.nl}{danielvanginneken.nl}}\;\;$\cdot$\;\;%
-  \contactitem{\faGithub}{\href{https://github.com/DanielvG-IT}{github.com/DanielvG-IT}}
+  \contactitem{\faGithub}{\href{https://github.com/danielvanginneken}{github.com/danielvanginneken}}
 \end{minipage}%
 \hfill
 \begin{minipage}[c]{0.18\textwidth}
   \raggedleft
   \begin{tikzpicture}
     \clip circle (1.4cm);
-    \node {\includegraphics[width=2.8cm]{./assets/picture.png}};
+    \node {\includegraphics[width=2.8cm]{../assets/picture.png}};
   \end{tikzpicture}
 \end{minipage}
 
-\vspace{-2pt}
+\vspace{-4pt}
 
 % ═══════════════════════════════════════════════════════════
 % PROFILE
@@ -86,24 +37,34 @@
 
 Backend-focused software developer with 3+ years of production infrastructure experience and a strong interest in distributed systems, event-driven architectures, and backend API design.
 Comfortable across the full deployment stack — from Cisco/VLAN networking and Linux server administration to ASP.NET Core APIs and message-driven backends.
-Currently studying Computer Science (HBO) at Avans University while working part-time as a System Support Engineer at Dentech.
+Currently studying Computer Science (HBO) at Avans University, working part-time at Dentech, and interning as a developer at Basic-Fit.
 
 % ═══════════════════════════════════════════════════════════
 % EXPERIENCE
 % ═══════════════════════════════════════════════════════════
 \section{Experience}
 
+\cventry{Basic-Fit}{Tilburg, NL}%
+        {Fullstack Developer Intern}{Aug 2026 -- Jan 2027}
+\begin{itemize}
+  \item Build full-stack features (TypeScript) for a customer-facing retail application, integrating with external providers
+  \item Collaborate within a platform team on feature refinement and security discussions
+  \item Document the application landscape and core processes for the team
+\end{itemize}
+
+\vspace{1pt}
+
 \cventry{Dentech Telecommunicatie, Beveiliging \& Automatisering}{Etten-Leur, NL}%
         {System Support Engineer $\cdot$ Part-time}{May 2024 -- Present}
 \begin{itemize}
-  \item Design and maintain multi-site network infrastructure: Cisco switching, VLAN segmentation, inter-VLAN routing, and firewall policy
-  \item Administer Linux and Windows Server environments (Active Directory, Group Policy, DNS/DHCP) across multiple SMB client organizations
+  \item Design and maintain multi-site network infrastructure: Cisco switching, VLAN segmentation, and firewall policy
+  \item Administer Linux and Windows Server environments (AD, Group Policy, DNS/DHCP) for multiple SMB clients
   \item Deploy and manage Proxmox virtualization clusters hosting production workloads
   \item Automate provisioning and configuration workflows with PowerShell and Bash, eliminating repetitive manual steps
   \item Lead deployment and configuration of 3CX PBX systems and VoIP infrastructure for client rollouts
 \end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \cventry{Dentech Telecommunicatie, Beveiliging \& Automatisering}{Etten-Leur, NL}%
         {Junior Support Engineer $\cdot$ Work-based learning}{Nov 2022 -- May 2024}
@@ -121,12 +82,12 @@ Currently studying Computer Science (HBO) at Avans University while working part
 \cvsimple{PatientPingeling \textnormal{\small\color{lightgray}--- \href{https://github.com/PatientPingeling/PatientPingeling}{github.com/PatientPingeling/PatientPingeling}}}{2026}
 \begin{itemize}
   \item Multi-tenant notification platform built with ASP.NET Core, PostgreSQL, and RabbitMQ
-  \item Designed clean architecture with provider abstraction (factory pattern) supporting email, SMS, and push notification channels with per-tenant configuration
-  \item Implemented asynchronous background processing via RabbitMQ, decoupling notification dispatch from the request lifecycle
+  \item Clean architecture with a provider abstraction (factory pattern) for email, SMS, and push channels, per-tenant configured
+  \item Asynchronous background processing via RabbitMQ, decoupling notification dispatch from the request lifecycle
   \item Instrumented with OpenTelemetry for distributed tracing, structured logging, and metrics; deployed via Docker Compose
 \end{itemize}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \cvsimple{Personal Portfolio --- \href{https://danielvanginneken.nl}{danielvanginneken.nl}}{2025}
 \begin{itemize}
@@ -143,7 +104,7 @@ Currently studying Computer Science (HBO) at Avans University while working part
 \vspace{-1pt}
 {\small Focus: .NET, React, Agile, Cloud \& DevOps}
 
-\vspace{4pt}
+\vspace{1pt}
 
 \cventry{MBO Level 4 BBL -- ICT Systems \& Device Engineering}{Sep 2022 -- Jun 2024}%
         {Curio, Breda}{}
@@ -156,31 +117,21 @@ Currently studying Computer Science (HBO) at Avans University while working part
 \section{Technical Skills}
 
 \begin{tabularx}{\textwidth}{@{}>{\bfseries\small}l@{\hspace{8pt}}X@{}}
-Backend         & C\# / .NET, ASP.NET Core, Entity Framework Core, REST APIs, PostgreSQL, SQL Server \\[3pt]
-Messaging       & RabbitMQ, asynchronous processing, event-driven architectures \\[3pt]
-Frontend        & React, TypeScript, JavaScript \\[3pt]
-Observability   & OpenTelemetry, metrics, tracing, structured logging \\[3pt]
-Infrastructure  & Linux, Proxmox, VMware, Hyper-V, Docker, Windows Server, Active Directory, PowerShell, Bash \\[3pt]
-Networking      & Cisco IOS, VLANs, inter-VLAN routing, firewalls, VPN, DNS/DHCP, 3CX PBX \\[3pt]
+Backend         & C\# / .NET, ASP.NET Core, Entity Framework Core, REST APIs, PostgreSQL, SQL Server \\[0pt]
+Messaging       & RabbitMQ, asynchronous processing, event-driven architectures \\[0pt]
+Frontend        & React, TypeScript, JavaScript \\[0pt]
+Observability   & OpenTelemetry, metrics, tracing, structured logging \\[0pt]
+Infrastructure  & Linux, Proxmox, VMware, Hyper-V, Docker, Windows Server, Active Directory, PowerShell, Bash \\[0pt]
+Networking      & Cisco IOS, VLANs, inter-VLAN routing, firewalls, VPN, DNS/DHCP, 3CX PBX \\[0pt]
 Tools           & Git, CI/CD, Azure, Agile / Scrum \\
 \end{tabularx}
 
 % ═══════════════════════════════════════════════════════════
-% CERTIFICATIONS
+% CERTIFICATIONS & LANGUAGES
 % ═══════════════════════════════════════════════════════════
-\section{Certifications}
+\section{Certifications \& Languages}
 
-\begin{itemize}[leftmargin=12pt]
-  \item Microsoft 365 Certified: Fundamentals (MS-900)
-  \item 3CX Advanced Certified Engineer
-  \item Yealink Junior Certified IP Phone Engineer
-\end{itemize}
-
-% ═══════════════════════════════════════════════════════════
-% LANGUAGES
-% ═══════════════════════════════════════════════════════════
-\section{Languages}
-
-Dutch --- Native \quad English --- Professional Working
+\textbf{Certifications:} Microsoft 365 Fundamentals (MS-900) $\cdot$ 3CX Advanced Certified Engineer $\cdot$ Yealink Junior Certified IP Phone Engineer $\cdot$ RoutIT Hosted Voice Fundamentals\\
+\textbf{Languages:} Dutch --- Native $\cdot$ English --- Professional Working $\cdot$ German --- Elementary
 
 \end{document}

@@ -14,12 +14,12 @@ Working part-time as a System Support Engineer at Dentech while studying Compute
 
 ## Projects
 
-### [PatientPingeling](https://github.com/DanielvG-IT/PatientPingeling)
+### [PatientPingeling](https://github.com/danielvanginneken/PatientPingeling)
 *Multi-tenant notification platform — ASP.NET Core · RabbitMQ · PostgreSQL · OpenTelemetry*
 
 Event-driven notification dispatch system that routes messages across multiple providers (email, SMS, push). Designed around clean architecture with per-tenant configuration, asynchronous message processing via RabbitMQ, a provider abstraction layer for pluggable notification providers, and distributed tracing, metrics, and structured logging through OpenTelemetry. Deployed via Docker Compose.
 
-### [OpenCaptive](https://github.com/DanielvG-IT/OpenCaptive)
+### [OpenCaptive](https://github.com/danielvanginneken/OpenCaptive)
 *Modern captive portal platform — ASP.NET Core · PostgreSQL · Docker · Networking*
 
 Open-source captive portal platform designed for modern networks. Focused on authentication, tenant management, extensibility, and operational simplicity. Built with a backend-first architecture and designed to integrate with networking environments commonly found in MSP, hospitality, education, and enterprise deployments.
@@ -67,4 +67,4 @@ Automation     PowerShell, Bash
 
 **Currently learning:** distributed systems design, cloud-native architectures, software architecture, observability, and scalable backend systems.
 
-[LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.nl) · [GitHub](https://github.com/DanielvG-IT) · dcjvanginneken@gmail.com
+[LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.nl) · [GitHub](https://github.com/danielvanginneken) · dcjvanginneken@gmail.com

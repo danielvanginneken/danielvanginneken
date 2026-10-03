@@ -28,17 +28,17 @@ jobs:
         run: |
           docker run --rm \
             -v "${{ github.workspace }}:/workspace" \
-            -w /workspace \
+            -w /workspace/cv \
             ghcr.io/xu-cheng/texlive-full:latest \
             sh -c '
-              pdflatex -interaction=nonstopmode "Curriculum Vitae (EN).tex" &&
-              pdflatex -interaction=nonstopmode "Curriculum Vitae (NL).tex"
+              pdflatex -interaction=nonstopmode CV-DanielvanGinneken-EN.tex &&
+              pdflatex -interaction=nonstopmode CV-DanielvanGinneken-NL.tex
             '
 
-      - name: Rename outputs
+      - name: Move outputs
         run: |
-          mv "Curriculum Vitae (EN).pdf" "CV-DanielvanGinneken-EN.pdf"
-          mv "Curriculum Vitae (NL).pdf" "CV-DanielvanGinneken-NL.pdf"
+          mv "cv/CV-DanielvanGinneken-EN.pdf" "CV-DanielvanGinneken-EN.pdf"
+          mv "cv/CV-DanielvanGinneken-NL.pdf" "CV-DanielvanGinneken-NL.pdf"
 
       - name: Determine next version
         id: version
