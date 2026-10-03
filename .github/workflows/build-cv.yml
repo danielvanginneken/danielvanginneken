@@ -31,14 +31,14 @@ jobs:
             -w /workspace/cv \
             ghcr.io/xu-cheng/texlive-full:latest \
             sh -c '
-              pdflatex -interaction=nonstopmode CV-DanielvanGinneken-EN.tex &&
-              pdflatex -interaction=nonstopmode CV-DanielvanGinneken-NL.tex
+              pdflatex -interaction=nonstopmode cv-en.tex &&
+              pdflatex -interaction=nonstopmode cv-nl.tex
             '
 
-      - name: Move outputs
+      - name: Rename outputs
         run: |
-          mv "cv/CV-DanielvanGinneken-EN.pdf" "CV-DanielvanGinneken-EN.pdf"
-          mv "cv/CV-DanielvanGinneken-NL.pdf" "CV-DanielvanGinneken-NL.pdf"
+          mv "cv/cv-en.pdf" "CV-DanielvanGinneken-EN.pdf"
+          mv "cv/cv-nl.pdf" "CV-DanielvanGinneken-NL.pdf"
 
       - name: Determine next version
         id: version
