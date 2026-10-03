@@ -9,26 +9,15 @@
 % ═══════════════════════════════════════════════════════════
 % HEADER
 % ═══════════════════════════════════════════════════════════
-\noindent
-\begin{minipage}[c]{0.78\textwidth}
-  {\Huge\bfseries\sffamily\color{accent} Daniël van Ginneken}\\[6pt]
-  \contactitem{\faMapMarker*}{Oudenbosch, Nederland}\;\;$\cdot$\;\;%
-  \contactitem{\faEnvelope}{\href{mailto:dcjvanginneken@gmail.com}{dcjvanginneken@gmail.com}}\;\;$\cdot$\;\;%
-  \contactitem{\faPhone*}{Beschikbaar op aanvraag}\\[0pt]
-  \contactitem{\faLinkedin}{\href{https://linkedin.com/in/daniel-vginneken}{linkedin.com/in/daniel-vginneken}}\;\;$\cdot$\;\;%
-  \contactitem{\faGlobe}{\href{https://danielvanginneken.nl}{danielvanginneken.nl}}\;\;$\cdot$\;\;%
-  \contactitem{\faGithub}{\href{https://github.com/danielvanginneken}{github.com/danielvanginneken}}
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.18\textwidth}
-  \raggedleft
-  \begin{tikzpicture}
-    \clip circle (1.4cm);
-    \node {\includegraphics[width=2.8cm]{../assets/picture.png}};
-  \end{tikzpicture}
-\end{minipage}
-
-\vspace{-4pt}
+\cvheader{Daniël van Ginneken}
+  {Backend Softwareontwikkelaar}
+  {\contactplain{\faMapMarker*}{Oudenbosch, Nederland}\csep
+   \contactlink{\faEnvelope}{mailto:dcjvanginneken@gmail.com}{dcjvanginneken@gmail.com}\csep
+   \contactplain{\faPhone*}{Beschikbaar op aanvraag}}
+  {\contactlink{\faLinkedin}{https://linkedin.com/in/danielvanginneken}{linkedin.com/in/danielvanginneken}\csep
+   \contactlink{\faGlobe}{https://danielvanginneken.nl}{danielvanginneken.nl}\csep
+   \contactlink{\faGithub}{https://github.com/danielvanginneken}{github.com/danielvanginneken}}
+  {../assets/picture.jpg}
 
 % ═══════════════════════════════════════════════════════════
 % PROFIEL
@@ -37,101 +26,94 @@
 
 Backend-gerichte softwareontwikkelaar met 3+ jaar productie-infrastructuurervaring en een sterke interesse in gedistribueerde systemen, event-driven architecturen en backend API-ontwerp.
 Thuis in de volledige deployment stack --- van Cisco/VLAN-netwerken en Linux-serverbeheer tot ASP.NET Core API's en message-driven backends.
-Studeert momenteel Informatica (HBO) aan Avans Hogeschool, werkt parttime bij Dentech en loopt stage als developer bij Basic-Fit.
+Studeert momenteel Informatica (HBO) aan Avans Hogeschool en loopt stage als developer bij Basic-Fit.
 
 % ═══════════════════════════════════════════════════════════
 % WERKERVARING
 % ═══════════════════════════════════════════════════════════
 \section{Werkervaring}
 
-\cventry{Basic-Fit}{Tilburg, NL}%
-        {Fullstack Developer (stagiair)}{aug 2026 -- jan 2027}
+\begin{cvgrid}
+\cventry{aug 2026 -- jan 2027}{Tilburg, NL}
+        {Fullstack Developer \textnormal{\color{muted}$\cdot$ Stage}}{Basic-Fit}
 \begin{itemize}
   \item Bouw fullstack features (TypeScript) voor een klantgerichte retailapplicatie, met integratie van externe partijen
   \item Werk binnen een platformteam mee aan refinements en beveiligingsvraagstukken
   \item Documenteer het applicatielandschap en kernprocessen voor het team
 \end{itemize}
 
-\vspace{1pt}
-
-\cventry{Dentech Telecommunicatie, Beveiliging \& Automatisering}{Etten-Leur, NL}%
-        {System Support Engineer $\cdot$ Parttime}{mei 2024 -- heden}
+\cvcompany{nov 2022 -- aug 2026}{Etten-Leur, NL}{Dentech Telecommunicatie, Beveiliging \& Automatisering}
+\cvrole{System Support Engineer \textnormal{\color{muted}$\cdot$ Parttime}}{mei 2024 -- aug 2026}{%
 \begin{itemize}
   \item Ontwerp en beheer van multi-site netwerkinfrastructuur: Cisco-switching, VLAN-segmentatie en firewallbeleid
-  \item Beheer van Linux- en Windows Server-omgevingen (AD, Group Policy, DNS/DHCP) voor meerdere zakelijke klanten
+  \item Beheer van Linux- en Windows Server-omgevingen (AD, Group Policy, DNS/DHCP) voor diverse mkb-klanten
   \item Implementatie en beheer van Proxmox-virtualisatieclusters met productie-workloads
   \item Automatisering van provisioning- en configuratietaken met PowerShell en Bash, waardoor repetitieve handmatige stappen worden geëlimineerd
   \item Leiding over implementatie en configuratie van 3CX PBX-systemen en VoIP-infrastructuur bij klanten
-\end{itemize}
-
-\vspace{1pt}
-
-\cventry{Dentech Telecommunicatie, Beveiliging \& Automatisering}{Etten-Leur, NL}%
-        {Junior Support Engineer $\cdot$ BBL}{nov 2022 -- mei 2024}
+\end{itemize}}
+\cvrole*{Junior Support Engineer \textnormal{\color{muted}$\cdot$ BBL}}{nov 2022 -- mei 2024}{%
 \begin{itemize}
   \item Oplossen van hardware-, software- en VoIP-incidenten in meerdere klantomgevingen
-  \item Ondersteuning van Windows Server, Active Directory en werkstationbeheer onder begeleiding van senior collega's
-  \item Ontwikkeling van kerninfrastructuurvaardigheden tijdens het afronden van MBO Niveau 4 ICT Systeem- \& Devicetechnicus
-\end{itemize}
+  \item Ondersteuning van Windows Server, Active Directory en werkstationbeheer onder begeleiding van seniors
+  \item Kerninfrastructuurvaardigheden opgebouwd tijdens MBO Niveau 4 ICT Systeem- \& Devicetechnicus
+\end{itemize}}
+\end{cvgrid}
 
 % ═══════════════════════════════════════════════════════════
 % PROJECTEN
 % ═══════════════════════════════════════════════════════════
 \section{Projecten}
 
-\cvsimple{PatientPingeling \textnormal{\small\color{lightgray}--- \href{https://github.com/PatientPingeling/PatientPingeling}{github.com/PatientPingeling/PatientPingeling}}}{2026}
+\begin{cvgrid}
+\cvproject{2026}{PatientPingeling}
+          {https://github.com/PatientPingeling/PatientPingeling}{github.com/PatientPingeling/PatientPingeling}
+          {ASP.NET Core \middot PostgreSQL \middot RabbitMQ \middot OpenTelemetry \middot Docker}
 \begin{itemize}
-  \item Multi-tenant notificatieplatform gebouwd met ASP.NET Core, PostgreSQL en RabbitMQ
-  \item Clean architecture met een provider-abstractielaag (factory pattern) voor e-mail, SMS en push, per tenant geconfigureerd
+  \item Multi-tenant notificatieplatform met per tenant geconfigureerde e-mail-, SMS- en pushkanalen
+  \item Clean architecture met een provider-abstractielaag (factory pattern), zodat notificatiekanalen inplugbaar zijn
   \item Asynchrone berichtverwerking via RabbitMQ, waarmee notificatieverzending wordt losgekoppeld van de request lifecycle
-  \item Gedistribueerde tracing, metrics en gestructureerde logging via OpenTelemetry; gedeployed via Docker Compose
+  \item Distributed tracing, metrics en gestructureerde logging via OpenTelemetry; deployment met Docker Compose
 \end{itemize}
 
-\vspace{1pt}
-
-\cvsimple{Persoonlijke Portfolio --- \href{https://danielvanginneken.nl}{danielvanginneken.nl}}{2025}
+\cvproject{2025}{Persoonlijke Portfolio}
+          {https://danielvanginneken.nl}{danielvanginneken.nl}
+          {}
 \begin{itemize}
   \item Persoonlijke website gebouwd met React en TypeScript; self-hosted via Docker op eigen infrastructuur
 \end{itemize}
+\end{cvgrid}
 
 % ═══════════════════════════════════════════════════════════
 % OPLEIDING
 % ═══════════════════════════════════════════════════════════
 \section{Opleiding}
 
-\cventry{Bachelor of Applied Science -- Informatica (HBO)}{sep 2024 -- jun 2028}%
-        {Avans Hogeschool, Breda}{}
-\vspace{-1pt}
-{\small Focus: .NET, React, Agile, Cloud \& DevOps}
+\begin{cvgrid}
+\cventry{sep 2024 -- jun 2028}{Breda, NL}
+        {Bachelor of Applied Science -- Informatica (HBO)}{Avans Hogeschool}
+{\small\color{muted}Focus: .NET, React, Agile, Cloud \& DevOps}
 
-\vspace{1pt}
-
-\cventry{MBO Niveau 4 BBL -- ICT Systeem- \& Devicetechnicus}{sep 2022 -- jun 2024}%
-        {Curio, Breda}{}
-\vspace{-1pt}
-{\small Versneld duaal traject: fulltime werkzaam bij Dentech gecombineerd met formele ICT-systeemopleiding}
+\cventry{sep 2022 -- jun 2024}{Breda, NL}
+        {MBO Niveau 4 BBL -- ICT Systeem- \& Devicetechnicus}{Curio}
+{\small\color{muted}Versneld duaal traject: fulltime werkzaam bij Dentech gecombineerd met formele ICT-systeemopleiding}
+\end{cvgrid}
 
 % ═══════════════════════════════════════════════════════════
-% TECHNISCHE VAARDIGHEDEN
+% VAARDIGHEDEN, CERTIFICERINGEN & TALEN
 % ═══════════════════════════════════════════════════════════
-\section{Technische Vaardigheden}
+\section{Vaardigheden \& Certificeringen}
 
-\begin{tabularx}{\textwidth}{@{}>{\bfseries\small}l@{\hspace{8pt}}X@{}}
-Backend         & C\# / .NET, ASP.NET Core, Entity Framework Core, REST API's, PostgreSQL, SQL Server \\[0pt]
-Messaging       & RabbitMQ, asynchrone verwerking, event-driven architecturen \\[0pt]
-Frontend        & React, TypeScript, JavaScript \\[0pt]
-Observability   & OpenTelemetry, metrics, tracing, gestructureerde logging \\[0pt]
-Infrastructuur  & Linux, Proxmox, VMware, Hyper-V, Docker, Windows Server, Active Directory, PowerShell, Bash \\[0pt]
-Netwerken       & Cisco IOS, VLAN's, inter-VLAN routing, firewalls, VPN, DNS/DHCP, 3CX PBX \\[0pt]
-Tools           & Git, CI/CD, Azure, Agile / Scrum \\
-\end{tabularx}
-
-% ═══════════════════════════════════════════════════════════
-% CERTIFICERINGEN & TALEN
-% ═══════════════════════════════════════════════════════════
-\section{Certificeringen \& Talen}
-
-\textbf{Certificeringen:} Microsoft 365 Fundamentals (MS-900) $\cdot$ 3CX Advanced Certified Engineer $\cdot$ Yealink Junior Certified IP Phone Engineer $\cdot$ RoutIT Hosted Voice Fundamentals\\
-\textbf{Talen:} Nederlands --- Moedertaal $\cdot$ Engels --- Professioneel werkend $\cdot$ Duits --- Beginnend
+\begin{cvgrid}[itemsep=2pt]
+\cvrow{Backend}{C\# / .NET, ASP.NET Core, Entity Framework Core, REST API's, PostgreSQL, SQL Server}
+\cvrow{Messaging}{RabbitMQ, asynchrone verwerking, event-driven architecturen}
+\cvrow{Frontend}{React, TypeScript, JavaScript}
+\cvrow{Observability}{OpenTelemetry, metrics, tracing, gestructureerde logging}
+\cvrow{Infrastructuur}{Linux, Proxmox, VMware, Hyper-V, Docker, Windows Server, Active Directory, PowerShell, Bash}
+\cvrow{Netwerken}{Cisco IOS, VLAN's, inter-VLAN routing, firewalls, VPN, DNS/DHCP, 3CX PBX}
+\cvrow{Tools}{Git, CI/CD, Azure, Agile / Scrum}
+\vspace{3pt}
+\cvrow{Certificeringen}{Microsoft 365 Fundamentals (MS-900) \middot 3CX Advanced Certified Engineer \middot Yealink Junior Certified IP Phone Engineer \middot RoutIT Hosted Voice Fundamentals}
+\cvrow{Talen}{Nederlands (moedertaal) \middot Engels (professioneel werkend) \middot Duits (beginnend)}
+\end{cvgrid}
 
 \end{document}

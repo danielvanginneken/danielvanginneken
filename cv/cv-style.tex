@@ -3,29 +3,47 @@
 %  \input this from each language's main .tex file.
 %  Keep packages, colours, section/entry formatting here so the
 %  EN and NL CVs can never drift out of visual sync.
+%
+%  Layout: a dark header band, then a two-column grid — a narrow
+%  "meta" column (dates, locations, labels) on the left and the
+%  content column on the right. Every section uses the same grid.
+%  Single text flow, no floats/columns, so ATS parsers read it
+%  top-to-bottom.
+%
+%  Engine: pdflatex (same as CI). Not XeTeX: there, Source Sans hyphens
+%  extract from the PDF as U+2011, which breaks ATS keyword matching,
+%  and microtype can't do font expansion.
+%  Single pass — no tikz overlays that need a previous run's .aux.
 %──────────────────────────────────────────────────────────────
 
 % ── Packages ─────────────────────────────────────────────────
+\usepackage[a4paper, left=1.2cm, right=1.2cm, top=0.7cm, bottom=0.6cm, noheadfoot]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.4in, top=0.25in, bottom=0.25in]{geometry}
+\usepackage[default, semibold]{sourcesanspro}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{fontawesome5}
-\usepackage{tabularx}
-\usepackage{parskip}
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{charter}
-\usepackage[scaled=0.92]{helvet}
+\usepackage{eso-pic}
+\usepackage{hyperref}
+
+% Letterspacing (tracking) via microtype; #1 is in 1/1000 em.
+\newcommand{\track}[2]{\textls[#1]{#2}}
 
 % ── Colours ──────────────────────────────────────────────────
-\definecolor{accent}{HTML}{1A5276}
-\definecolor{lightgray}{HTML}{666666}
-\definecolor{ruleclr}{HTML}{CCCCCC}
+\definecolor{band}{HTML}{16222D}      % header background
+\definecolor{bandtext}{HTML}{D5DEE5}  % contact text on the band
+\definecolor{accent}{HTML}{1C7C8C}    % teal: headings, links, markers
+\definecolor{accentlight}{HTML}{6CC4D1}
+\definecolor{ink}{HTML}{1E2A33}       % body text
+\definecolor{muted}{HTML}{5E6B75}     % dates, secondary text
+\definecolor{ruleclr}{HTML}{D3DAE0}
+
+\color{ink}
 
 % ── Hyperlinks ───────────────────────────────────────────────
 \hypersetup{
@@ -36,22 +54,162 @@
   pdftitle={CV — Daniël van Ginneken},
 }
 
-% ── Section formatting ───────────────────────────────────────
-\titleformat{\section}
-  {\large\bfseries\color{accent}\sffamily}
-  {}{0pt}{\MakeUppercase}[\vspace{-4pt}\textcolor{ruleclr}{\rule{\linewidth}{0.6pt}}]
-\titlespacing*{\section}{0pt}{3pt}{1pt}
-
-% ── Custom commands ──────────────────────────────────────────
-\newcommand{\cventry}[4]{%
-  {\textbf{#1}}\hfill{\small\color{lightgray}#2}\\
-  {\textit{#3}}\hfill{\small\color{lightgray}#4}\vspace{2pt}%
-}
-\newcommand{\cvsimple}[2]{%
-  {\textbf{#1}}\hfill{\small\color{lightgray}#2}\vspace{1pt}%
-}
-\newcommand{\contactitem}[2]{\mbox{#1\,\small #2}}
-
+% ── Page basics ──────────────────────────────────────────────
 \pagestyle{empty}
-\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt}
-\setlength{\parskip}{1pt plus 1pt minus 1pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\AtBeginDocument{\fontsize{9.6}{11.6}\selectfont}
+\hyphenpenalty=5000
+\exhyphenpenalty=5000
+
+% ── Header band ──────────────────────────────────────────────
+% Painted behind page 1 via eso-pic; the header text sits on top of
+% it in the normal flow, inside a box of fixed height.
+\newlength{\bandheight}\setlength{\bandheight}{3.45cm}
+\newlength{\bandpad}\setlength{\bandpad}{0.7cm}   % = geometry top
+
+\AddToShipoutPictureBG*{%
+  \AtPageUpperLeft{%
+    {\color{band}\rule[-\bandheight]{\paperwidth}{\bandheight}}%
+  }%
+  \AtPageUpperLeft{%
+    \raisebox{-\bandheight}{{\color{accent}\rule[-3pt]{\paperwidth}{3pt}}}%
+  }%
+}
+
+% \contactlink{icon}{url}{text} — light-on-dark contact item
+\newcommand{\contactlink}[3]{%
+  \mbox{{\color{accentlight}#1}\,\href{#2}{\color{bandtext}#3}}}
+\newcommand{\contactplain}[2]{%
+  \mbox{{\color{accentlight}#1}\,{\color{bandtext}#2}}}
+\newcommand{\csep}{\hspace{0.7em}}
+
+% \cvheader{name}{headline}{contact line 1}{contact line 2}{photo}
+\newcommand{\cvheader}[5]{%
+  \begin{minipage}[c][\dimexpr\bandheight-2\bandpad\relax][c]{\dimexpr\textwidth-3.3cm\relax}
+    {\color{white}\fontsize{27}{30}\selectfont\bfseries #1}\par\vspace{4pt}
+    {\color{accentlight}\large\track{40}{#2}}\par\vspace{9pt}
+    {\small #3}\par\vspace{3pt}
+    {\small #4}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c][\dimexpr\bandheight-2\bandpad\relax][c]{3cm}
+    \raggedleft
+    \begin{tikzpicture}
+      \begin{scope}
+        \clip circle (1.32cm);
+        \node[yshift=-0.15cm] {\includegraphics[width=2.75cm]{#5}};
+      \end{scope}
+      \draw[accentlight, line width=1.6pt] circle (1.32cm);
+    \end{tikzpicture}
+  \end{minipage}\par
+  \vspace{\dimexpr\bandpad+8pt\relax}%
+}
+
+% ── Section headings ─────────────────────────────────────────
+% TITLE
+% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ (solid dark rule, full width)
+\newcommand{\sectionlabel}[1]{\track{60}{\MakeUppercase{#1}}}
+\titleformat{\section}[block]
+  {\color{band}\sffamily\bfseries\large}
+  {}{0pt}{\sectionlabel}[\vspace{-1pt}{\color{band}\titlerule[0.9pt]}]
+\titlespacing*{\section}{0pt}{7pt}{4.5pt}
+
+% ── The grid ─────────────────────────────────────────────────
+\newlength{\metacol}\setlength{\metacol}{2.65cm}
+\newlength{\metagap}\setlength{\metagap}{0.3cm}
+
+% Every section body is one `cvgrid`; each \item[meta] is a row.
+\newlist{cvgrid}{description}{1}
+\setlist[cvgrid]{
+  leftmargin=\dimexpr\metacol+\metagap\relax,
+  labelwidth=\metacol, labelsep=\metagap, labelindent=0pt,
+  align=left, font=\normalfont,
+  topsep=0pt, itemsep=4.5pt, parsep=0pt, partopsep=0pt,
+  before=\raggedright,
+}
+% Two-line meta cell: primary (dates) + secondary (location)
+\newcommand{\meta}[2]{%
+  \smash{\parbox[t]{\metacol}{\raggedright\leavevmode
+    {\small\color{muted}#1}%
+    \if\relax\detokenize{#2}\relax\else\\[-1pt]{\footnotesize\color{muted}#2}\fi}}}
+
+% \cventry{dates}{location}{role}{organisation}
+\newcommand{\cventry}[4]{%
+  \item[\meta{#1}{#2}]%
+  {\bfseries #3}\\[-1pt]
+  {\color{accent}#4}\par}
+
+% ── Several roles at one employer ───────────────────────────
+%   \cvcompany{total dates}{location}{organisation}
+%   \cvrole{role}{role dates}{bullets}     — newest first
+%   \cvrole*{role}{role dates}{bullets}    — the last (oldest) role
+%
+% Three looks for the same content. Pick one by (un)commenting the
+% \NewCommandCopy lines at the end of this block — the .tex files
+% don't change.
+
+% (1) GROUPED — company once (total span in the meta column), roles as
+%     sub-headings with their own dates right-aligned.
+\newcommand{\groupedcompany}[3]{%
+  \item[\meta{#1}{#2}]%
+  {\color{accent}#3}\par\vspace{1pt}}
+\NewDocumentCommand{\groupedrole}{s m m +m}{%
+  {\bfseries #2}\hfill{\small\color{muted}#3}\par
+  #4%
+  \IfBooleanF{#1}{\par\vspace{4pt}}}
+
+% (2) TIMELINE — like (1), plus a LinkedIn-style dot per role and a rail
+%     connecting them. The rail is a \vrule beside a [t] minipage, so
+%     it's exactly as tall as the role's content.
+\newlength{\railgap}\setlength{\railgap}{9pt}
+\newcommand{\raildot}{%
+  \llap{\tikz[baseline=-0.55ex]\fill[accent] (0,0) circle (2.3pt);\hspace{7.4pt}}}
+\NewDocumentCommand{\timelinerole}{s m m +m}{%
+  \par\nointerlineskip\noindent
+  \hbox{%
+    \hspace{3pt}%
+    \IfBooleanTF{#1}{\hspace{0.8pt}}{{\color{ruleclr}\vrule width 0.8pt}}%
+    \hspace{\railgap}%
+    \begin{minipage}[t]{\dimexpr\linewidth-3.8pt-\railgap\relax}
+      \raggedright
+      \leavevmode\raildot{\bfseries #2}%
+      \hfill{\small\color{muted}#3}\par
+      #4%
+      % trailing gap kept inside the box so the rail bridges it
+      \IfBooleanF{#1}{\par\vspace{4pt}\hrule height 0pt}%
+    \end{minipage}}%
+  \par}
+
+% (3) SEPARATE — every role is its own entry with the company repeated,
+%     role dates in the meta column (the classic layout).
+\newcommand{\separateorg}{}\newcommand{\separateloc}{}
+\newcommand{\separatecompany}[3]{%
+  \renewcommand{\separateloc}{#2}\renewcommand{\separateorg}{#3}}
+\NewDocumentCommand{\separaterole}{s m m +m}{%
+  \cventry{#3}{\separateloc}{#2}{\separateorg}#4}
+
+% ▸ Active look — keep exactly one pair uncommented:
+\NewCommandCopy\cvcompany\groupedcompany  \NewCommandCopy\cvrole\groupedrole     % (1) grouped
+% \NewCommandCopy\cvcompany\groupedcompany  \NewCommandCopy\cvrole\timelinerole  % (2) timeline
+% \NewCommandCopy\cvcompany\separatecompany \NewCommandCopy\cvrole\separaterole  % (3) separate
+
+% \cvproject{year}{name}{url}{display url}{stack}
+\newcommand{\cvproject}[5]{%
+  \item[\meta{#1}{}]%
+  {\bfseries #2}\hspace{0.5em}{\small\href{#3}{#4}}%
+  \if\relax\detokenize{#5}\relax\else\\[-1pt]{\small\color{muted}#5}\fi\par}
+
+% \cvrow{label}{content} — skills, languages, certifications
+\newcommand{\cvrow}[2]{%
+  \item[{\small\bfseries #1}]#2}
+
+% Interpunct separator for inline lists
+\newcommand{\middot}{\unskip\hspace{0.4em}{\color{accent}\textperiodcentered}\hspace{0.4em}\ignorespaces}
+
+% ── Bullets ──────────────────────────────────────────────────
+\setlist[itemize]{
+  label={\color{accent}\raisebox{0.18em}{\rule{0.3em}{0.3em}}},
+  leftmargin=11pt, labelsep=6pt,
+  topsep=2pt, itemsep=0.5pt, parsep=0pt, partopsep=0pt,
+}

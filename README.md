@@ -6,7 +6,7 @@ I build backend services, event-driven systems, and the platforms they run on �
 
 ---
 
-Working part-time as a System Support Engineer at Dentech while studying Computer Science at Avans University of Applied Sciences. My background spans both infrastructure (Linux, Proxmox, Cisco, VLANs) and backend engineering (ASP.NET Core, PostgreSQL, RabbitMQ), allowing me to think about systems at every layer, from network topology to application design.
+Studying Computer Science at Avans University of Applied Sciences and currently interning as a fullstack developer at Basic-Fit. Before that, I spent almost four years at Dentech, growing from junior support engineer to system support engineer. My background spans both infrastructure (Linux, Proxmox, Cisco, VLANs) and backend engineering (ASP.NET Core, PostgreSQL, RabbitMQ), allowing me to think about systems at every layer, from network topology to application design.
 
 **Current engineering interests:** event-driven architectures · distributed systems · observability · backend API design · infrastructure automation · cloud-native systems
 
@@ -14,7 +14,7 @@ Working part-time as a System Support Engineer at Dentech while studying Compute
 
 ## Projects
 
-### [PatientPingeling](https://github.com/danielvanginneken/PatientPingeling)
+### [PatientPingeling](https://github.com/PatientPingeling/PatientPingeling)
 *Multi-tenant notification platform — ASP.NET Core · RabbitMQ · PostgreSQL · OpenTelemetry*
 
 Event-driven notification dispatch system that routes messages across multiple providers (email, SMS, push). Designed around clean architecture with per-tenant configuration, asynchronous message processing via RabbitMQ, a provider abstraction layer for pluggable notification providers, and distributed tracing, metrics, and structured logging through OpenTelemetry. Deployed via Docker Compose.
@@ -67,4 +67,4 @@ Automation     PowerShell, Bash
 
 **Currently learning:** distributed systems design, cloud-native architectures, software architecture, observability, and scalable backend systems.
 
-[LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.nl) · [GitHub](https://github.com/danielvanginneken) · dcjvanginneken@gmail.com
+[CV (PDF)](https://github.com/danielvanginneken/danielvanginneken/releases/latest) · [LinkedIn](https://www.linkedin.com/in/danielvanginneken) · [Website](https://danielvanginneken.nl) · [GitHub](https://github.com/danielvanginneken) · dcjvanginneken@gmail.com
